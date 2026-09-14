@@ -57,7 +57,7 @@
       padding: 2rem 0 4rem;
     }
 
-    main[id],
+    #main-content,
     section[id] {
       scroll-margin-top: 1.5rem;
     }
@@ -297,13 +297,14 @@
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
-  <main class="page" id="main-content" tabindex="-1">
+  <main class="page">
+    <div id="main-content" tabindex="-1"></div>
     <section class="hero" aria-labelledby="hero-title">
       <div>
         <span class="eyebrow">Attractive, informative, future-focused</span>
         <h1 id="hero-title">Discover software built with clear goals, strong principles, and a better vision for tomorrow.</h1>
         <p>
-          Software Vision Hub presents dozens of software solutions in one place, helping visitors quickly understand what each product does, the objectives it serves, and the values that guide its growth.
+          Software Vision Hub presents a curated software showcase in one place, helping visitors quickly understand what each product area does, the objectives it serves, and the values that guide its growth.
         </p>
         <div class="hero-actions">
           <a class="button button-primary" href="#software">Explore software</a>
