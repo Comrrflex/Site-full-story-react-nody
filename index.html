@@ -101,6 +101,11 @@
       outline-offset: 3px;
     }
 
+    a:focus-visible {
+      outline: 3px solid #facc15;
+      outline-offset: 3px;
+    }
+
     .button-primary {
       background: #fff;
       color: var(--surface-alt);
@@ -254,10 +259,10 @@
       </aside>
     </section>
 
-    <section id="software">
+    <section id="software" aria-labelledby="software-title">
       <div class="section-heading">
         <span class="section-tag">Software library</span>
-        <h2>Learn the purpose of every solution</h2>
+        <h2 id="software-title">Learn the purpose of every solution</h2>
         <p>Each feature card turns complex software into simple, accessible information that is easy to scan and compare.</p>
       </div>
 
@@ -308,10 +313,10 @@
       </div>
     </section>
 
-    <section id="vision" class="vision">
+    <section id="vision" class="vision" aria-labelledby="vision-title">
       <div class="section-heading">
         <span class="section-tag">Shared future</span>
-        <h2>A wonderful vision for all</h2>
+        <h2 id="vision-title">A wonderful vision for all</h2>
       </div>
       <p>
         This experience is designed to feel modern and inviting while staying deeply informative. <strong>It helps people discover software with confidence</strong>, understand the purpose behind each product, and connect that knowledge to a future shaped by thoughtful, principled technology.
