@@ -57,7 +57,7 @@
       padding: 2rem 0 4rem;
     }
 
-    #main-content,
+    main[id],
     section[id] {
       scroll-margin-top: 1.5rem;
     }
@@ -297,8 +297,7 @@
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
-  <main class="page">
-    <div id="main-content" tabindex="-1"></div>
+  <main class="page" id="main-content" tabindex="-1">
     <section class="hero" aria-labelledby="hero-title">
       <div>
         <span class="eyebrow">Attractive, informative, future-focused</span>
@@ -397,5 +396,12 @@
       A simple landing page focused on visual appeal, accessible information, and a positive software vision.
     </footer>
   </main>
+  <script>
+    document.querySelector('.skip-link')?.addEventListener('click', function () {
+      requestAnimationFrame(function () {
+        document.getElementById('main-content')?.focus();
+      });
+    });
+  </script>
 </body>
 </html>
