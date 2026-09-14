@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Software Vision Hub</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --surface: #ffffff;
+      --surface-alt: #0f172a;
+      --text: #122033;
+      --muted: #516173;
+      --primary: #2563eb;
+      --primary-soft: #dbeafe;
+      --accent: #7c3aed;
+      --shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+      --border: rgba(148, 163, 184, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(37, 99, 235, 0.12), transparent 28%),
+        linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      padding: 0.75rem 1rem;
+      border-radius: 0.75rem;
+      background: var(--surface-alt);
+      color: #fff;
+      text-decoration: none;
+      transform: translateY(-200%);
+      transition: transform 0.2s ease;
+    }
+
+    .skip-link:focus-visible {
+      transform: translateY(0);
+      outline: 3px solid #facc15;
+      outline-offset: 3px;
+    }
+
+    #main-content:focus {
+      outline: 3px solid rgba(37, 99, 235, 0.45);
+      outline-offset: 0.75rem;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 2rem 0 4rem;
+    }
+
+    main[id],
+    section[id] {
+      scroll-margin-top: 1.5rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      align-items: center;
+      padding: 3rem;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(37, 99, 235, 0.88));
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow,
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .hero h1 {
+      margin: 1rem 0;
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      line-height: 1.05;
+    }
+
+    .hero p {
+      margin: 0 0 1.5rem;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 1.05rem;
+      max-width: 38rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 1.3rem;
+      border-radius: 999px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .button:focus-visible {
+      outline: 3px solid #facc15;
+      outline-offset: 3px;
+    }
+
+    a:focus-visible {
+      outline: 3px solid #facc15;
+      outline-offset: 3px;
+    }
+
+    .button-primary {
+      background: #fff;
+      color: var(--surface-alt);
+    }
+
+    .button-secondary {
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #fff;
+    }
+
+    .hero-panel,
+    .card,
+    .vision {
+      background: var(--surface);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-panel {
+      padding: 1.5rem;
+      color: var(--text);
+    }
+
+    .hero-panel h2 {
+      margin-top: 0;
+      font-size: 1.15rem;
+    }
+
+    .hero-panel ul {
+      padding-left: 1.2rem;
+      margin-bottom: 0;
+    }
+
+    section {
+      margin-top: 2rem;
+    }
+
+    .section-heading {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-tag {
+      width: fit-content;
+      background: var(--primary-soft);
+      color: var(--primary);
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+    }
+
+    .section-heading p,
+    .card p,
+    .vision p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .grid {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .card {
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 0.6rem;
+      font-size: 1.1rem;
+    }
+
+    .pill-row {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+      margin-bottom: 0;
+      padding: 0;
+    }
+
+    .pill {
+      padding: 0.45rem 0.75rem;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #3730a3;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
+    .vision {
+      padding: 2rem;
+      background:
+        linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(124, 58, 237, 0.1)),
+        var(--surface);
+      border: 1px solid rgba(37, 99, 235, 0.12);
+    }
+
+    .vision strong {
+      color: var(--surface-alt);
+    }
+
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(calc(100% - 1rem), 1120px);
+      }
+
+      .hero {
+        padding: 1.5rem;
+      }
+    }
+
+    @media (forced-colors: active) {
+      body {
+        background: Canvas;
+        color: CanvasText;
+      }
+
+      .hero,
+      .hero-panel,
+      .card,
+      .vision,
+      .button,
+      .skip-link {
+        border: 1px solid CanvasText;
+        background: Canvas;
+        color: CanvasText;
+        box-shadow: none;
+      }
+
+      .button-primary,
+      .button-secondary,
+      .eyebrow,
+      .section-tag,
+      .pill {
+        border: 1px solid CanvasText;
+        background: Canvas;
+        color: CanvasText;
+      }
+
+      a:focus-visible,
+      .button:focus-visible,
+      .skip-link:focus-visible {
+        outline-color: Highlight;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <main class="page" id="main-content" tabindex="-1">
+    <header class="hero" aria-labelledby="hero-title">
+      <div>
+        <span class="eyebrow">Attractive, informative, future-focused</span>
+        <h1 id="hero-title">Discover software built with clear goals, strong principles, and a better vision for tomorrow.</h1>
+        <p>
+          Software Vision Hub presents a curated software showcase in one place, helping visitors quickly understand what each product area does, the objectives it serves, and the values that guide its growth.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#software">Explore software</a>
+          <a class="button button-secondary" href="#vision">See the vision</a>
+        </div>
+      </div>
+
+      <div class="hero-panel" aria-labelledby="highlights-title">
+        <h2 id="highlights-title">What visitors learn here</h2>
+        <ul>
+          <li>What each software product is designed to achieve</li>
+          <li>How every solution supports real people and practical work</li>
+          <li>Which principles shape quality, trust, and long-term impact</li>
+        </ul>
+      </div>
+    </header>
+
+    <section id="software" aria-labelledby="software-title">
+      <div class="section-heading">
+        <span class="section-tag">Software library</span>
+        <h2 id="software-title">Learn the purpose of every solution</h2>
+        <p>Each feature card turns complex software into simple, accessible information that is easy to scan and compare.</p>
+      </div>
+
+      <ul class="grid">
+        <li class="card">
+          <h3>Business Planning Tools</h3>
+          <p>Understand how planning platforms help teams define objectives, organize work, and make faster decisions.</p>
+        </li>
+        <li class="card">
+          <h3>Creative Design Apps</h3>
+          <p>See which products support visual storytelling, interface design, and brand expression with clarity.</p>
+        </li>
+        <li class="card">
+          <h3>Learning Platforms</h3>
+          <p>Explore software that makes training, documentation, and knowledge sharing easier for everyone.</p>
+        </li>
+        <li class="card">
+          <h3>Productivity Systems</h3>
+          <p>Review tools that improve focus, collaboration, and everyday workflow efficiency across many teams.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="principles" aria-labelledby="principles-title">
+      <div class="section-heading">
+        <span class="section-tag">Core principles</span>
+        <h2 id="principles-title">Built on trustworthy values</h2>
+        <p>The site communicates more than features by showing the principles that keep each software experience responsible and useful.</p>
+      </div>
+
+      <ul class="grid">
+        <li class="card">
+          <h3>Clarity</h3>
+          <p>Information is written in a direct, informative way so visitors understand products without confusion.</p>
+        </li>
+        <li class="card">
+          <h3>Commitment</h3>
+          <p>Every software story highlights dedication to reliability, improvement, and meaningful outcomes.</p>
+        </li>
+        <li class="card">
+          <h3>Accessibility</h3>
+          <p>Content is structured to be readable, organized, and welcoming for a broad audience.</p>
+        </li>
+        <li class="card">
+          <h3>Innovation</h3>
+          <p>The presentation emphasizes progress and how technology can create better opportunities in the future.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="vision" class="vision" aria-labelledby="vision-title">
+      <div class="section-heading">
+        <span class="section-tag">Shared future</span>
+        <h2 id="vision-title">A wonderful vision for all</h2>
+      </div>
+      <p>
+        This experience is designed to feel modern and inviting while staying deeply informative. <strong>It helps people discover software with confidence</strong>, understand the purpose behind each product, and connect that knowledge to a future shaped by thoughtful, principled technology.
+      </p>
+      <ul class="pill-row">
+        <li class="pill">Informative content</li>
+        <li class="pill">Modern visual identity</li>
+        <li class="pill">Product objectives</li>
+        <li class="pill">Principled growth</li>
+        <li class="pill">Future vision</li>
+      </ul>
+    </section>
+
+    <footer>
+      A simple landing page focused on visual appeal, accessible information, and a positive software vision.
+    </footer>
+  </main>
+</body>
+</html>
