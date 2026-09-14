@@ -57,6 +57,11 @@
       padding: 2rem 0 4rem;
     }
 
+    main[id],
+    section[id] {
+      scroll-margin-top: 1.5rem;
+    }
+
     .hero {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -292,7 +297,7 @@
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
-  <main class="page" id="main-content">
+  <main class="page" id="main-content" tabindex="-1">
     <section class="hero" aria-labelledby="hero-title">
       <div>
         <span class="eyebrow">Attractive, informative, future-focused</span>
