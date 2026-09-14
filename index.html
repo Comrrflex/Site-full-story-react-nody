@@ -176,10 +176,13 @@
     }
 
     .pill-row {
+      list-style: none;
       display: flex;
       flex-wrap: wrap;
       gap: 0.6rem;
       margin-top: 1rem;
+      margin-bottom: 0;
+      padding: 0;
     }
 
     .pill {
@@ -236,8 +239,8 @@
         </div>
       </div>
 
-      <aside class="hero-panel" aria-label="Highlights">
-        <h2>What visitors learn here</h2>
+      <aside class="hero-panel" aria-labelledby="highlights-title">
+        <h2 id="highlights-title">What visitors learn here</h2>
         <ul>
           <li>What each software product is designed to achieve</li>
           <li>How every solution supports real people and practical work</li>
@@ -308,13 +311,13 @@
       <p>
         This experience is designed to feel modern and inviting while staying deeply informative. <strong>It helps people discover software with confidence</strong>, understand the purpose behind each product, and connect that knowledge to a future shaped by thoughtful, principled technology.
       </p>
-      <div class="pill-row" aria-label="Future themes">
-        <span class="pill">Informative content</span>
-        <span class="pill">Modern visual identity</span>
-        <span class="pill">Product objectives</span>
-        <span class="pill">Principled growth</span>
-        <span class="pill">Future vision</span>
-      </div>
+      <ul class="pill-row" aria-label="Future themes">
+        <li class="pill">Informative content</li>
+        <li class="pill">Modern visual identity</li>
+        <li class="pill">Product objectives</li>
+        <li class="pill">Principled growth</li>
+        <li class="pill">Future vision</li>
+      </ul>
     </section>
 
     <footer>
