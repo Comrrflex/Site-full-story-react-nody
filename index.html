@@ -57,7 +57,7 @@
       padding: 2rem 0 4rem;
     }
 
-    main[id],
+    h1[id],
     section[id] {
       scroll-margin-top: 1.5rem;
     }
@@ -297,11 +297,11 @@
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
-  <main class="page" id="main-content" tabindex="-1">
-    <section class="hero" aria-labelledby="hero-title">
+  <main class="page">
+    <section class="hero" aria-labelledby="main-content">
       <div>
         <span class="eyebrow">Attractive, informative, future-focused</span>
-        <h1 id="hero-title">Discover software built with clear goals, strong principles, and a better vision for tomorrow.</h1>
+        <h1 id="main-content" tabindex="-1">Discover software built with clear goals, strong principles, and a better vision for tomorrow.</h1>
         <p>
           Software Vision Hub presents a curated software showcase in one place, helping visitors quickly understand what each product area does, the objectives it serves, and the values that guide its growth.
         </p>
@@ -396,12 +396,5 @@
       A simple landing page focused on visual appeal, accessible information, and a positive software vision.
     </footer>
   </main>
-  <script>
-    document.querySelector('.skip-link')?.addEventListener('click', function () {
-      requestAnimationFrame(function () {
-        document.getElementById('main-content')?.focus();
-      });
-    });
-  </script>
 </body>
 </html>
