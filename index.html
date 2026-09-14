@@ -6,7 +6,6 @@
   <title>Software Vision Hub</title>
   <style>
     :root {
-      color-scheme: light;
       --bg: #f4f7fb;
       --surface: #ffffff;
       --surface-alt: #0f172a;
@@ -169,9 +168,12 @@
     }
 
     .grid {
+      list-style: none;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1rem;
+      margin: 0;
+      padding: 0;
     }
 
     .card {
@@ -266,24 +268,24 @@
         <p>Each feature card turns complex software into simple, accessible information that is easy to scan and compare.</p>
       </div>
 
-      <div class="grid">
-        <article class="card">
+      <ul class="grid">
+        <li class="card">
           <h3>Business Planning Tools</h3>
           <p>Understand how planning platforms help teams define objectives, organize work, and make faster decisions.</p>
-        </article>
-        <article class="card">
+        </li>
+        <li class="card">
           <h3>Creative Design Apps</h3>
           <p>See which products support visual storytelling, interface design, and brand expression with clarity.</p>
-        </article>
-        <article class="card">
+        </li>
+        <li class="card">
           <h3>Learning Platforms</h3>
           <p>Explore software that makes training, documentation, and knowledge sharing easier for everyone.</p>
-        </article>
-        <article class="card">
+        </li>
+        <li class="card">
           <h3>Productivity Systems</h3>
           <p>Review tools that improve focus, collaboration, and everyday workflow efficiency across many teams.</p>
-        </article>
-      </div>
+        </li>
+      </ul>
     </section>
 
     <section aria-labelledby="principles-title">
@@ -293,24 +295,24 @@
         <p>The site communicates more than features by showing the principles that keep each software experience responsible and useful.</p>
       </div>
 
-      <div class="grid">
-        <article class="card">
+      <ul class="grid">
+        <li class="card">
           <h3>Clarity</h3>
           <p>Information is written in a direct, informative way so visitors understand products without confusion.</p>
-        </article>
-        <article class="card">
+        </li>
+        <li class="card">
           <h3>Commitment</h3>
           <p>Every software story highlights dedication to reliability, improvement, and meaningful outcomes.</p>
-        </article>
-        <article class="card">
+        </li>
+        <li class="card">
           <h3>Accessibility</h3>
           <p>Content is structured to be readable, organized, and welcoming for a broad audience.</p>
-        </article>
-        <article class="card">
+        </li>
+        <li class="card">
           <h3>Innovation</h3>
           <p>The presentation emphasizes progress and how technology can create better opportunities in the future.</p>
-        </article>
-      </div>
+        </li>
+      </ul>
     </section>
 
     <section id="vision" class="vision" aria-labelledby="vision-title">
