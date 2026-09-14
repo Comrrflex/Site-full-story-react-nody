@@ -32,6 +32,25 @@
       line-height: 1.6;
     }
 
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      padding: 0.75rem 1rem;
+      border-radius: 0.75rem;
+      background: var(--surface-alt);
+      color: #fff;
+      text-decoration: none;
+      transform: translateY(-200%);
+      transition: transform 0.2s ease;
+    }
+
+    .skip-link:focus-visible {
+      transform: translateY(0);
+      outline: 3px solid #facc15;
+      outline-offset: 3px;
+    }
+
     .page {
       width: min(1120px, calc(100% - 2rem));
       margin: 0 auto;
@@ -234,10 +253,41 @@
         padding: 1.5rem;
       }
     }
+
+    @media (forced-colors: active) {
+      .hero,
+      .hero-panel,
+      .card,
+      .vision,
+      .button,
+      .skip-link {
+        border: 1px solid CanvasText;
+        background: Canvas;
+        color: CanvasText;
+        box-shadow: none;
+      }
+
+      .button-primary,
+      .button-secondary,
+      .eyebrow,
+      .section-tag,
+      .pill {
+        border: 1px solid CanvasText;
+        background: Canvas;
+        color: CanvasText;
+      }
+
+      a:focus-visible,
+      .button:focus-visible,
+      .skip-link:focus-visible {
+        outline-color: Highlight;
+      }
+    }
   </style>
 </head>
 <body>
-  <main class="page">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <main class="page" id="main-content">
     <section class="hero" aria-labelledby="hero-title">
       <div>
         <span class="eyebrow">Attractive, informative, future-focused</span>
